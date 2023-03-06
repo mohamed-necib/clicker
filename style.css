@@ -1,13 +1,20 @@
 /* GOOGLE FONTS IMPORT */
 @import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap");
+@font-face {
+  font-family: "Ghosties";
+  src: url(assets/fonts/PWGhost.ttf);
+}
 
 :root {
   /*Colors*/
-  --bg-color: rgb(5, 10, 25);
+  --bg-color: #140d2b;
   --border-color: rgb(255, 255, 255, 0.1);
-  --highlight-color: rgb(126, 87, 194);
+  --highlight-color: #7e57c2;
+  --hover-color: #e62649;
+  --text-color: whitesmoke;
   /* FONT */
   --font: "Space Grotesk", sans-serif;
+  --title-font: "Ghosties", sans-serif;
 }
 
 /* =====> RESET */
@@ -38,23 +45,38 @@ h1 {
   font-size: 120px;
 }
 
-a {
+.nav-logo-section span {
+  font-family: var(--title-font);
+  margin-left: 30px;
+}
+
+.nav-section a {
   text-transform: uppercase;
   text-decoration: none;
 }
+
+.nav-logo-section span:hover,
 a:hover {
-  color: var(--highlight-color);
+  color: var(--hover-color);
 }
 
 body {
   background-color: var(--bg-color);
   display: flex;
   flex-direction: column;
-  height: 100%;
+  height: 100vh;
   overflow: hidden;
 }
 
 /* ================================> NAVBAR */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: hsla(260, 43%, 25%, 0.149);
+  backdrop-filter: blur(1rem);
+}
 nav {
   display: flex;
   width: 100%;
@@ -62,7 +84,7 @@ nav {
 }
 
 nav > .nav-section {
-  padding: 3rem 2rem;
+  padding: 2rem 2rem;
   display: flex;
   gap: 1rem;
   border-left: 1px solid var(--border-color);
@@ -107,7 +129,7 @@ article {
   grid-template-rows: 2fr 1fr;
   position: absolute;
   left: 0px;
-  top: 147px;
+  top: 115px;
 }
 
 .article-section {
@@ -121,9 +143,10 @@ article {
   border-left: 1px solid var(--border-color);
 }
 
-.article-title-section,
+.article-specs-section,
 .article-click-section {
   border-top: 1px solid var(--border-color);
+  margin-bottom: 30px;
 }
 
 .article-score-section {
@@ -133,27 +156,271 @@ article {
 }
 
 .article-items-section {
-  display: grid;
-  grid-template-columns: 2fr;
-  grid-template-rows: 3fr;
-}
-
-/* BUTTON CSS */
-.item-btn {
-  width: 120px;
-  height: 120px;
-  padding: 4px;
-  background: indianred;
-  border-color: whitesmoke;
-  border-radius: 40px;
   display: flex;
   flex-direction: column;
+}
+
+.items-title {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  font-size: 30px;
+  text-align: center;
+}
+
+.items-selection {
+  height: 100%;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 50% 50%;
+  grid-template-rows: 50% 50%;
+}
+
+.item-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.item-container button {
+  cursor: pointer;
+}
+
+.item-1,
+.item-2,
+.item-3,
+.item-4 {
+  display: flex;
   align-items: center;
   justify-content: center;
 }
 
+.article-specs-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.article-specs-section span {
+  font-family: var(--font);
+  font-size: 50px;
+  color: var(--text-color);
+}
+
+.article-specs-section .btn-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5px;
+}
+
+.btn-container button{
+  margin-left: 15px;
+}
+
+/* BUTTON CSS */
+.item-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 120px;
+  height: 120px;
+  padding: 4px;
+  border: none;
+  background: #9266e0;
+  box-shadow: 4px 4px 25px rgba(200, 155, 252, 0.7),
+    inset 5px 5px 15px rgba(200, 155, 252, 0.7), inset 16.5px 16.5px 20px #533a80,
+    inset -10px -10px 20px #533a80;
+  border-radius: 40px;
+  border-radius: 30px;
+}
+
 .item-btn > i {
   font-size: 25px;
-  color: whitesmoke;
+  color: var(--text-color);
   padding-bottom: 12px;
+}
+.item-3 i {
+  color: var(--text-color);
+  font-size: 25px;
+}
+
+#btn-click {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  background: none;
+  padding-bottom: 20%;
+  border: none;
+}
+
+/* PAGE CONNEXION/INSCRIPTION */
+section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: url(assets/ghost.jpg) no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.wrapper {
+  position: relative;
+  width: 400px;
+  height: 440px;
+  background: transparent;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  border-radius: 20px;
+  backdrop-filter: blur(1rem);
+  box-shadow: 0 0 30px rgba(163, 96, 239, 0.46);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  transform: scale(0);
+  transition: transform 0.5s ease, height 0.2s ease;
+}
+
+.wrapper.active-popup {
+  transform: scale(1);
+}
+
+.wrapper.active {
+  height: 520px;
+}
+
+.wrapper .form-box {
+  width: 100%;
+  padding: 40px;
+}
+
+.wrapper .form-box.login {
+  transition: transform 0.18s ease;
+  transform: translateX(0);
+}
+
+.wrapper.active .form-box.login {
+  transition: none;
+  transform: translateX(-400px);
+}
+
+.wrapper .form-box.register {
+  position: absolute;
+  transition: none;
+  transform: translateX(400px);
+}
+
+.wrapper.active .form-box.register {
+  transition: transform 0.18s ease;
+  transform: translateX(0);
+}
+
+.wrapper .icon-close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 50px;
+  height: 50px;
+  background: #442a6d;
+  font-size: 2em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom-left-radius: 20px;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.form-box h2 {
+  font-size: 3em;
+  font-weight: 700;
+  color: var(--text-color);
+  text-align: center;
+}
+
+.input-box {
+  position: relative;
+  width: 100%;
+  height: 50px;
+  border-bottom: 2px solid var(--text-color);
+  margin: 30px 0;
+}
+
+.input-box label {
+  position: absolute;
+  top: 50%;
+  left: 5px;
+  transform: translateY(-50%);
+  font-family: var(--font);
+  font-size: 1em;
+  color: var(--text-color);
+  font-weight: 500;
+  pointer-events: none;
+  transition: 0.5s;
+}
+
+.input-box input:focus ~ label,
+.input-box input:valid ~ label {
+  top: -5px;
+}
+
+.input-box input {
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  border: none;
+  outline: none;
+  font-size: 1em;
+  color: var(--text-color);
+  font-weight: 600;
+  padding: 0 35px 0 5px;
+}
+
+.input-box .icon {
+  position: absolute;
+  right: 8px;
+  font-size: 1.2em;
+  color: var(--text-color);
+  line-height: 57px;
+}
+
+.btn {
+  width: 100%;
+  height: 45px;
+  background: #442a6d;
+  border: none;
+  outline: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1em;
+  font-weight: 500;
+  color: var(--text-color);
+}
+
+.login-register {
+  font-size: 0.9em;
+  text-align: center;
+  color: var(--text-color);
+  font-weight: 500;
+  margin: 25px 0 10px;
+}
+
+.login-register p {
+  text-shadow: 0 0 5px rgba(128, 24, 247, 0.734);
+}
+
+.login-register p a {
+  color: var(--text-color);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.login-register p a:hover {
+  color: var(--hover-color);
+  text-decoration: underline;
 }
